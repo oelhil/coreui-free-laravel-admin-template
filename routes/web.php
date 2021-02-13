@@ -10,11 +10,24 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::resource('kgb','KGBController');
 
 Route::group(['middleware' => ['get.menu']], function () {
-    Route::get('/', function () {           return view('dashboard.homepage'); });
 
-    Route::group(['middleware' => ['role:user']], function () {
+    Route::group(['middleware' => ['auth']], function () {
+        //Route::get('/', function () { return view('dashboard.homepage'); }); 
+    });
+
+    Route::group(['middleware' => ['auth','kp']], function () {
+        Route::get('/adminkp', 'adminKpController@index');
+        Route::get('/kgb_surat', 'KGBFormSuratController@index');
+        Route::get('/kgb_surat_tmp', 'KGBFormSuratController@formsuratkgbtmp');
+
+        //Route::resource('kgb','KGBController');
+    });
+
+    Route::group(['middleware' => ['auth','role:user']], function () {       
+        Route::get('/', function () { return view('dashboard.homepage'); });  
         Route::get('/colors', function () {     return view('dashboard.colors'); });
         Route::get('/typography', function () { return view('dashboard.typography'); });
         Route::get('/charts', function () {     return view('dashboard.charts'); });

@@ -8,3 +8,55 @@
 .click-file{
     cursor:pointer;
 }
+
+.c-sidebar {
+    background-color: $orange-bdi;
+}
+
+.login-bdi {
+    background-color: $orange-bdi;
+}
+
+.login-bdi h1, .btn-primary.login-bdi{
+    color: $text-bdi;
+}
+
+.login-bdi .btn-primary{
+    background-color: $hijau-bdi;
+    border-color: $hijau-bdi;
+    color: $text-bdi;
+}
+
+//icon toogle sidebar
+.c-sidebar .c-sidebar-minimizer:before {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 11 14'%3E%3Cpath fill='%23fff' d='M9.148 2.352l-4.148 4.148 4.148 4.148q0.148 0.148 0.148 0.352t-0.148 0.352l-1.297 1.297q-0.148 0.148-0.352 0.148t-0.352-0.148l-5.797-5.797q-0.148-0.148-0.148-0.352t0.148-0.352l5.797-5.797q0.148-0.148 0.352-0.148t0.352 0.148l1.297 1.297q0.148 0.148 0.148 0.352t-0.148 0.352z'/%3E%3C/svg%3E");
+  }
+
+  //hoover menu
+  @media (hover: hover), (-ms-high-contrast: none) {
+    .c-sidebar .c-sidebar-nav-link:hover,
+    .c-sidebar .c-sidebar-nav-dropdown-toggle:hover {
+      color: #fff;
+      background: $hijau-bdi;
+    }
+}
+
+
+//datatable
+div.dataTables_wrapper div.dataTables_length select {
+    min-width: 50px !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    padding: 0;
+    margin-left: 0;
+    border: 0;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover  {
+    border: none;
+}
+
+
+
+

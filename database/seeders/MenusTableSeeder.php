@@ -29,14 +29,35 @@ class MenusTableSeeder extends Seeder
         Function assigns menu elements to roles
         Must by use on end of this seeder
     */
+    
     public function joinAllByTransaction(){
-        DB::beginTransaction();
-        foreach($this->joinData as $data){
+        DB::beginTransaction();    
+                foreach($this->joinData as $data){
             DB::table('menu_role')->insert([
                 'role_name' => $data['role_name'],
                 'menus_id' => $data['menus_id'],
             ]);
         }
+        
+        /**
+        $temp_id = array();        
+        foreach($this->joinData as $data){
+            
+            if (in_array($data['menus_id'], $temp_id)) {
+                continue;
+            } else {
+                array_push($temp_id, $data['menus_id']);
+                DB::table('menu_role')->insert([
+                    'role_name' => 'cth',
+                    'menus_id' => $data['menus_id'],
+                ]);
+            }
+            
+        }
+         */
+        
+        //insert setting to admin
+        
         DB::commit();
     }
 
@@ -146,7 +167,7 @@ class MenusTableSeeder extends Seeder
             $this->insertLink('admin', 'Email',                   '/mail');
         $this->endDropdown();
         $this->insertLink('guest', 'Login', '/login', 'cil-account-logout');
-        $this->insertLink('guest', 'Register', '/register', 'cil-account-logout');
+        //$this->insertLink('guest', 'Register', '/register', 'cil-account-logout');
         $this->insertTitle('user,admin', 'Theme');
         $this->insertLink('user,admin', 'Colors', '/colors', 'cil-drop1');
         $this->insertLink('user,admin', 'Typography', '/typography', 'cil-pencil');
@@ -193,8 +214,11 @@ class MenusTableSeeder extends Seeder
             $this->insertLink('user,admin', 'Error 404',     '/404');
             $this->insertLink('user,admin', 'Error 500',     '/500');
         $this->endDropdown();
-        $this->insertLink('guest,user,admin', 'Download CoreUI', 'https://coreui.io', 'cil-cloud-download');
-        $this->insertLink('guest,user,admin', 'Try CoreUI PRO', 'https://coreui.io/pro/', 'cil-layers');
+        //for kp
+        $this->insertLink('kp,admin', 'KGB', '/kgb', 'cil-address-book');
+        $this->endDropdown();
+        //$this->insertLink('guest,user,admin', 'Download CoreUI', 'https://coreui.io', 'cil-cloud-download');
+        //$this->insertLink('guest,user,admin', 'Try CoreUI PRO', 'https://coreui.io/pro/', 'cil-layers');
 
 
         /* Create top menu */

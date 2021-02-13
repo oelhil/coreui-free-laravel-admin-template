@@ -1,0 +1,45 @@
+.a4area {  
+    width: 21cm;
+    height: 29.7cm; 
+    display: block;
+    background-color: gray;
+  }
+
+  .a4area-header {
+      padding: 25px;
+  }
+
+.logo-header {
+    width: 160px    ;
+    float: left;
+    margin-right: 15px;
+} 
+
+.text-header {
+}
+
+.tahoma-text {
+    font-family: Tahoma, Verdana, Segoe, sans-serif;
+    
+}
+
+.f16 {
+    font-size: 14px;
+}
+.f16 {
+    font-size: 16px;
+}
+
+.logo-header>img{  
+    width: 100%;
+    height: auto;
+  }
+  
+/**
+@media print {
+    body, .a4area {
+      margin: 0;
+      box-shadow: 0;
+    }  
+  }
+  **/
